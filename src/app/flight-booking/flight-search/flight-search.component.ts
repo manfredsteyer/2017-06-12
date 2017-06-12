@@ -1,11 +1,11 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { Flight } from '../entities/flight';
+import { Flight } from '../../entities/flight';
 import { Http, Headers, URLSearchParams } from '@angular/http';
 import { FlightService } from './flight.service';
 
 @Component({
   selector: 'flight-search',
-  templateUrl: './flight-search.component.html',
+  templateUrl: 'flight-search.component.html',
   providers: [FlightService]
   // styleUrls: ['./flight-search.component.css'],
   // encapsulation: ViewEncapsulation.None

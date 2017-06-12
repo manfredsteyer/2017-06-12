@@ -3,19 +3,20 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
-import { FlightSearchComponent } from './flight-search/flight-search.component';
-import { FlightService } from './flight-search/flight.service';
+import { FlightSearchComponent } from './flight-booking/flight-search/flight-search.component';
+import { FlightService } from './flight-booking/flight-search/flight.service';
 import { BASE_URL } from './app.tokens';
+import { CityPipe } from './shared/city.pipe';
+import { FlightBookingModule } from './flight-booking/flight-booking.module';
 
 @NgModule({
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpModule
+    HttpModule,
+    FlightBookingModule
   ],
   declarations: [
-    AppComponent,
-    FlightSearchComponent
+    AppComponent
   ],
   providers: [
     { provide: BASE_URL, useValue: 'http://www.angular.at/api' }
