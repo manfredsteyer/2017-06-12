@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { FlightSearchComponent } from './flight-search/flight-search.component';
+import { FlightService } from './flight-search/flight.service';
+import { BASE_URL } from './app.tokens';
 
 @NgModule({
   imports: [
@@ -15,7 +17,11 @@ import { FlightSearchComponent } from './flight-search/flight-search.component';
     AppComponent,
     FlightSearchComponent
   ],
-  providers: [],
+  providers: [
+    { provide: BASE_URL, useValue: 'http://www.angular.at/api' }
+    //{ provide: FlightService, useClass: FlightService }
+    // FlightService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
