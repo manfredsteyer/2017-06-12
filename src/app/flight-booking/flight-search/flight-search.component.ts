@@ -30,7 +30,14 @@ export class FlightSearchComponent {
     console.debug('Liebesgrüße aus dem Konstruktor');
   }
 
+  error: boolean;
+
   search(): void {
+
+      if (!this.from || !this.to) {
+        this.error = true;
+        return;
+      }
 
       this
         .flightService
@@ -38,8 +45,10 @@ export class FlightSearchComponent {
         .subscribe(
           flights => {
             this.flights = flights;
+            this.error = false;
           },
           errResponse => {
+            this.error = true;
             console.error('Fehler beim Laden', errResponse);
           }
         );
