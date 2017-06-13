@@ -6,7 +6,7 @@ import { FlightService } from './flight.service';
 @Component({
   selector: 'flight-search',
   templateUrl: 'flight-search.component.html',
-  providers: [FlightService]
+  // providers: [FlightService]
   // styleUrls: ['./flight-search.component.css'],
   // encapsulation: ViewEncapsulation.None
 })
@@ -14,7 +14,7 @@ export class FlightSearchComponent {
 
   from: string;
   to: string;
-  flights: Array<Flight> = [];
+
   selectedFlight: Flight
 
   basket: object = {
@@ -32,6 +32,14 @@ export class FlightSearchComponent {
 
   error: boolean;
 
+
+  // flights: Array<Flight> = [];
+
+  // .flights
+  get flights(): Array<Flight> {
+    return this.flightService.flights;
+  }
+
   search(): void {
 
       if (!this.from || !this.to) {
@@ -41,17 +49,7 @@ export class FlightSearchComponent {
 
       this
         .flightService
-        .find(this.from, this.to)
-        .subscribe(
-          flights => {
-            this.flights = flights;
-            this.error = false;
-          },
-          errResponse => {
-            this.error = true;
-            console.error('Fehler beim Laden', errResponse);
-          }
-        );
+        .find(this.from, this.to);
 
   }
 
