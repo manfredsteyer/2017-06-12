@@ -11,13 +11,15 @@ import { FlightBookingModule } from './flight-booking/flight-booking.module';
 import { ErrorComponent } from './error/error.component';
 import { HomeComponent } from './home/home.component';
 import { AppRouterModule } from './app.routes';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   imports: [
     BrowserModule,
     HttpModule,
     FlightBookingModule,
-    AppRouterModule
+    AppRouterModule,
+    ServiceWorkerModule
   ],
   declarations: [
     AppComponent,
